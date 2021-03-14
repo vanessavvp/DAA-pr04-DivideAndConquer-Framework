@@ -7,9 +7,10 @@
 #include <stdlib.h>
 
 #include "framework/Framework.h"
-#include "examples/FibonacciS.h"
 #include "include/MergeSortProblema.h"
+#include "include/MergeSortSolucion.h"
 #include "include/QuickSortProblema.h"
+#include "include/QuickSortSolucion.h"
 
 
 int main(int argc, char* argv[]){
@@ -18,11 +19,12 @@ int main(int argc, char* argv[]){
 		exit(-1);
 	}
 
-	//Problema* problema = new FibonacciP(atoi(argv[1]));
-	//Solucion* solucion = new FibonacciS();
-	//Framework* framework = new Framework();
+	std::vector<int> vectorPorOrdenar {829, 242, 170, 587, 555, 171, 527, 355};
+	Problema* problema = new MergeSortProblema(vectorPorOrdenar);
+	Solucion* solucion = new MergeSortSolucion();
+	Framework* framework = new Framework();
 
-	//framework->divideyVenceras(problema, solucion);
+	framework->divideyVenceras(problema, solucion);
 	std::cout << "\nResultado:" << std::endl;
 	//solucion->resolver();
 
