@@ -15,6 +15,8 @@
 #ifndef MERGESORT_SOLUCION_H_
 #define MERGESORT_SOLUCION_H_
 
+#pragma once
+
 #include "../framework/Solucion.h"
 
 class MergeSortSolucion : public Solucion {

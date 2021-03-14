@@ -15,6 +15,8 @@
 #ifndef QUICKSORT_PROBLEMA_H_
 #define QUICKSORT_PROBLEMA_H_
 
+#pragma once
+
 #include "../framework/Problema.h"
 
 class QuickSortProblema : public Problema {

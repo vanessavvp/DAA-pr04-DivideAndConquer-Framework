@@ -15,6 +15,8 @@
 #ifndef QUICKSORT_SOLUCION_H
 #define QUICKSORT_SOLUCION_H
 
+#pragma once
+
 #include "../framework/Solucion.h"
 
 class QuickSortSolucion : public Solucion {

@@ -15,6 +15,8 @@
 #ifndef MERGESORT_PROBLEMA_H_
 #define MERGESORT_PROBLEMA_H_
 
+#pragma once
+
 #include "../framework/Problema.h"
 
 class MergeSortProblema : public Problema {
