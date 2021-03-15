@@ -29,7 +29,7 @@ class QuickSortSolucion : public Solucion {
     void setValor(std::vector<int> nuevoVector);
 
   private:
-    std::vector<int> vectorPorOrdenar_;
+    std::vector<int> vectorDesordenado_;
 };
 
 #endif // !QUICKSORT_SOLUCION_H

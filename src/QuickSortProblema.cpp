@@ -16,25 +16,54 @@
 
 
 QuickSortProblema::QuickSortProblema(std::vector<int> nuevoVector) : Problema::Problema() {
-  vectorPorOrdenar_ = nuevoVector;
+  vectorDesordenado_ = nuevoVector;
 }
 
 
 QuickSortProblema::~QuickSortProblema() {
-  vectorPorOrdenar_.clear();
+  vectorDesordenado_.clear();
 }
 
 
-QuickSortProblema::bool isCasoMinimo() {
-
+bool QuickSortProblema::isCasoMinimo() {
+  return (vectorDesordenado_.size() < 2);
 }
 
 
 std::pair<Problema*, Problema*> QuickSortProblema::descomponer() {
+  std::pair<Problema*, Problema*> subProblemas;
+  std::vector<int> primeraMitad;
+  std::vector<int> segundaMitad;
+  int inicio = 0;
+  int fin = (vectorDesordenado_.size() - 1);
+  int pivote = vectorDesordenado_[round(fin / 2)];
 
+  while (inicio <= fin) {
+    while (vectorDesordenado_[inicio] < pivote) inicio++;
+    while (vectorDesordenado_[fin] > pivote) fin--;
+
+    if (inicio <= fin) {
+      int auxInicio = vectorDesordenado_[inicio];
+      vectorDesordenado_[inicio] = vectorDesordenado_[fin];
+      vectorDesordenado_[fin] = auxInicio;
+      inicio++;
+      fin--;
+    }
+  }
+
+  for (int index = 0; index <= ((inicio + fin) / 2); index++) 
+    primeraMitad.push_back(vectorDesordenado_[index]);
+
+  for (int index = (((inicio + fin) / 2) + 1); index < vectorDesordenado_.size(); index++)
+    segundaMitad.push_back(vectorDesordenado_[index]);
+  
+  subProblemas.first  = new QuickSortProblema(primeraMitad);
+  subProblemas.second = new QuickSortProblema(segundaMitad);
+
+  return subProblemas;
 }
 
 
 void QuickSortProblema::solver(Solucion* s) {
-  
+  ((QuickSortSolucion*)s)->setValor(vectorDesordenado_);
 }

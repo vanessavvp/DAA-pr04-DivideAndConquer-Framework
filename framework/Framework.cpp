@@ -15,7 +15,7 @@ void Framework::divideyVenceras(Problema* p, Solucion* s){
 		pair<Problema*,Problema*> subProblemas;
 		pair<Solucion*,Solucion*> subSoluciones;
 		subProblemas = p->descomponer();
-		subSoluciones.first = s->getInstance();
+		subSoluciones.first  = s->getInstance();
 		subSoluciones.second = s->getInstance();
 		divideyVenceras(subProblemas.first, subSoluciones.first);  //.1
 		divideyVenceras(subProblemas.second, subSoluciones.second);  //.2

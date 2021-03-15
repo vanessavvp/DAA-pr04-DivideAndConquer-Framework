@@ -22,20 +22,68 @@ MergeSortSolucion::~MergeSortSolucion() {}
 
 
 void MergeSortSolucion::resolver() {
+  bool ordenado = false;
 
+  std::cout << "Vector resultante: [ ";
+  for (int index = 0; index < vectorDesordenado_.size(); index++) {
+    std::cout << vectorDesordenado_[index] << " ";
+  }
+  std::cout << "] <- ";
+
+  for (int index = 0; index < vectorDesordenado_.size() - 1; index++) {
+    if (vectorDesordenado_[index] <= vectorDesordenado_[index + 1]) {
+      ordenado = true;
+    }
+    else {
+      ordenado = false;
+      break;
+    }
+  }
+
+  if (ordenado) {
+    std::cout << "Ha sido ordenado." << std::endl;
+  }
+  else {
+    std::cout << "No ha podido ordenarse." << std::endl;
+  }
 }
 
 
-void MergeSortSolucion::mezcla(std::pair<Solucion*, Solucion*>) {
+void MergeSortSolucion::mezcla(std::pair<Solucion*, Solucion*> subSoluciones) {
+  std::vector<int> vectorIzq  = ((MergeSortSolucion*)subSoluciones.first)->vectorDesordenado_;
+  std::vector<int> vectorDer = ((MergeSortSolucion*)subSoluciones.second)->vectorDesordenado_;
 
+  int indiceIzq = 0;
+  int indiceDer = 0;
+
+  while ((indiceIzq < vectorIzq.size()) && (indiceDer < vectorDer.size())) {
+    if (vectorIzq[indiceIzq] <= vectorDer[indiceDer]) {
+      vectorDesordenado_.push_back(vectorIzq[indiceIzq]);
+      indiceIzq++;
+    }
+    else {
+      vectorDesordenado_.push_back(vectorDer[indiceDer]);
+      indiceDer++;
+    }
+  }
+    
+  while (indiceIzq < vectorIzq.size()) {
+    vectorDesordenado_.push_back(vectorIzq[indiceIzq]);
+    indiceIzq++;
+  }
+
+  while (indiceDer < vectorDer.size()) {
+    vectorDesordenado_.push_back(vectorDer[indiceDer]);
+    indiceDer++;
+  }
 }
 
 
 Solucion* MergeSortSolucion::getInstance() {
-  
+  return new MergeSortSolucion();
 }
 
 
 void MergeSortSolucion::setValor(std::vector<int> nuevoVector) {
-  
+  vectorDesordenado_ = nuevoVector;
 }

@@ -2,10 +2,12 @@
 #ifndef PROBLEMA_H_
 #define PROBLEMA_H_
 
-#include<vector>
-#include<utility>
-#include<iostream>
+#include <vector>
+#include <utility>
+#include <iostream>
+#include <cmath>
 #include"Solucion.h"
+
 using namespace std;
 
 class Problema {

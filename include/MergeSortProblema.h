@@ -18,6 +18,7 @@
 #pragma once
 
 #include "../framework/Problema.h"
+#include "./MergeSortSolucion.h"
 
 class MergeSortProblema : public Problema {
   public:
@@ -28,7 +29,7 @@ class MergeSortProblema : public Problema {
     void solver(Solucion* s);
     
   private:
-    std::vector<int> vectorPorOrdenar_;
+    std::vector<int> vectorDesordenado_;
 };
 
 #endif // !MERGESORT_PROBLEMA_H_

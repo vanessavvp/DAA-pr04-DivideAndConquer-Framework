@@ -24,12 +24,12 @@ class MergeSortSolucion : public Solucion {
     MergeSortSolucion();
     virtual ~MergeSortSolucion();
     void resolver();
-    void mezcla(std::pair<Solucion*, Solucion*>);
+    void mezcla(std::pair<Solucion*, Solucion*> subSoluciones);
     Solucion* getInstance();
     void setValor(std::vector<int> nuevoVector);
 
   private:
-    std::vector<int> vectorPorOrdenar_;
+    std::vector<int> vectorDesordenado_;
 };
 
 #endif // !MERGESORT_SOLUCION_H_

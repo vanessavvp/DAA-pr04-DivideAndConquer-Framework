@@ -18,6 +18,7 @@
 #pragma once
 
 #include "../framework/Problema.h"
+#include "./QuickSortSolucion.h"
 
 class QuickSortProblema : public Problema {
   public:
@@ -28,7 +29,7 @@ class QuickSortProblema : public Problema {
     void solver(Solucion* s);
     
   private:
-    std::vector<int> vectorPorOrdenar_;
+    std::vector<int> vectorDesordenado_;
 };
 
 #endif // !QUICKSORT_PROBLEMA_H_
