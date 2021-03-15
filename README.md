@@ -10,11 +10,12 @@
 - Implementar los algoritmos Mergesort y Quicksort utilizando el Framework que se ha proporcionado.
 
 ### Modo de ejecución
-Ejecutar en la terminal:
+Ejecutar en la terminal `make` para compilar y para ejecutar acompañar el ./main con el tamaño del vector a generar aleatoriamente:
 
 ```console
-make
+./main 5
 ```
+
 
 ### Estructura de directorios
 
