@@ -1,3 +1,16 @@
+/**
+ * CABECERA DEL PROYECTO
+ * @file main.cpp
+ * @author: Vanessa Valentina Villalba Perez
+ * Contacto:  alu0101265704@ull.edu.es
+ * @date: 14/03/2021
+ * Universidad de La Laguna
+ * Escuela Superior de Ingeniería y Tecnología
+ * Asignatura: Diseño y Análisis de Algoritmos
+ * Práctica: Numberº4
+ * Propósito: Implementación del algoritmo divide y vencerás para distintos
+ *    métodos de ordenación, a partir de un framework dado
+ */
 
 #ifndef MAIN_
 #define MAIN_
@@ -12,25 +25,33 @@
 #include "include/QuickSortProblema.h"
 #include "include/QuickSortSolucion.h"
 
+std::vector<int> generadorVectoresAleatorios(int tamanyo) {
+	std::vector<int> nuevoVector(tamanyo);
+	for (int index = 0; index < nuevoVector.size(); index++) {
+		nuevoVector[index] = (rand() % 100);
+	}
+
+	std::cout << "Vector inicial: [";
+	for (int index = 0; index < nuevoVector.size(); index++) {
+		std::cout << nuevoVector[index] << " ";
+	}
+	std::cout << "]\n";
+
+	return nuevoVector;
+}
 
 int main(int argc, char* argv[]){
-	std::vector<int> v(argc - 1);
-
-	if (argc < 2) {
+	std::vector<int> nuevoVector;
+	
+	if (argc != 2) {
 		std::cout << "\nNúmero de parametros incorrecto. Encontrado " << argc-1 << " requerido 1."<< std::endl;
 		exit(-1);
 	} else {
-		for (int i = 1; i < argc; i++) {
-			v[i - 1] = atoi(argv[i]);
-		}
+		nuevoVector.resize(atoi(argv[1]));
+		nuevoVector = generadorVectoresAleatorios(nuevoVector.size());
 	}
-	/*if (argc != 2) {
-		std::cout << "\nNúmero de parametros incorrecto. Encontrado " << argc-1 << " requerido 1."<< std::endl;
-		exit(-1);
-	}*/
-
-	//std::vector<int> vectorPorOrdenar {829, 242, 170, 587, 555, 171, 527, 355};
-	Problema* problemaMerge = new MergeSortProblema(v);
+	
+	Problema* problemaMerge = new MergeSortProblema(nuevoVector);
 	Solucion* solucionMerge = new MergeSortSolucion();
 	Framework* framework = new Framework();
 
@@ -38,8 +59,7 @@ int main(int argc, char* argv[]){
 	std::cout << "\nResultado MergeSort:" << std::endl;
 	solucionMerge->resolver();
 
-	//std::vector<int> vectorPorOrdenar2 {829, 242, 170, 587, 555, 171, 527, 355};
-	Problema* problemaQuick = new QuickSortProblema(v);
+	Problema* problemaQuick = new QuickSortProblema(nuevoVector);
 	Solucion* solucionQuick = new QuickSortSolucion();
 	Framework* framework2 = new Framework();
 
